@@ -8,12 +8,12 @@ const TodosList = observer(() => {
   console.log(todos)
 
   return (
-    <div>
+    <div className={styles.container}>
       {todos &&
-        todos.map(({ title, id, body }) => (
+        todos.map(({ title, id, body, isChecked }) => (
           <ul key={id} className={styles.list}>
             <li className={styles.item}>
-              <TodosItem title={title} body={body} id={id} />
+              <TodosItem title={title} body={body} id={id} check={isChecked} />
             </li>
           </ul>
         ))}

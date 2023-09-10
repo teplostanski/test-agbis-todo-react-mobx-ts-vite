@@ -1,21 +1,29 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { observer } from 'mobx-react-lite'
+import cn from 'classnames'
 import { todosStore } from '../../stores/todosStore'
+import styles from './TodoItem.module.scss'
 
 type TTodosItem = {
   title: string
   body: string
-  //checkbox: boolean
+  check: any
   id: string
 }
 
-const TodosItem = observer(({ title, body, id }: TTodosItem) => {
-  console.log(todosStore.todos[0].isChecked ? 'check' : 'no check')
+const TodosItem = observer(({ title, body, id, check }: TTodosItem) => {
+  const handleCurrentTodo = () => {
+    todosStore.setCurrentTodoId(id)
+    todosStore.getCurrentTodo(id)
+  }
 
   return (
-    <div>
+    <div className={styles.container} onClick={handleCurrentTodo}>
       <input type='checkbox' onClick={() => todosStore.setCompleted(id)} />
-      <h2>{title}</h2>
-      <p>{body}</p>
+      <div className={cn(check && styles.done)}>
+        <h2>{title}</h2>
+        <p>{body}</p>
+      </div>
     </div>
   )
 })

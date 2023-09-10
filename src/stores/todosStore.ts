@@ -58,7 +58,7 @@ class createTodosStore {
     this.todos = addTodo(this.todos)
   }
 
-  setCurrentTodo(id: string) {
+  setCurrentTodoId(id: string) {
     this.currentTodoId = id
     console.log(id)
   }
@@ -68,7 +68,7 @@ class createTodosStore {
       return todos.find(({ id }: { id: string }) => id === currentTodoId)
     }
     this.currentTodo = getCurrentTodo(this.todos, ids)
-    this.setCurrentTodo(ids)
+    this.setCurrentTodoId(ids)
     //console.log(this.currentTodo.title);
   }
 
