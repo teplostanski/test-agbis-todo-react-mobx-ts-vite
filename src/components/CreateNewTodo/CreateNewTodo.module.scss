@@ -1,0 +1,53 @@
+%nofocusborder {
+  outline: 0px none transparent;
+  color: var(--fg);
+  &:focus {
+    outline: 0;
+  }
+}
+
+.container {
+  border: 2px solid var(--bg-secondary);
+  padding: 10px;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.textareaContainer {
+  display: flex;
+  align-items: center;
+}
+
+.textarea {
+  border: none;
+  background: transparent;
+  resize: none;
+  @extend %nofocusborder;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  @extend %nofocusborder;
+}
+
+.buttonAdd {
+  width: 35px;
+  height: 35px;
+  background:
+    linear-gradient(var(--peach), var(--violet)) padding-box,
+    linear-gradient(0deg, var(--violet), var(--peach)) border-box;
+  border-radius: 13px;
+  border: 4px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  //display: none;
+}
+
+.none {
+  display: none;
+}

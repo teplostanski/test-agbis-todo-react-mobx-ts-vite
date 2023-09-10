@@ -11,8 +11,17 @@
     "prettier": "prettier --write \"src/**/*.{js,ts,jsx,tsx,css,scss,json}\""
   },
   "dependencies": {
+    "@mobx-devtools/tools": "^0.0.4",
+    "classnames": "^2.3.2",
+    "mobx": "^6.10.2",
+    "mobx-react-lite": "^4.0.4",
+    "nanoid": "^4.0.2",
+    "normalize.css": "^8.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
+    "react-textarea-autosize": "^8.5.3",
+    "sass": "^1.66.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -23,6 +32,7 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "prettier": "^3.0.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
