@@ -5,7 +5,6 @@ import styles from './TodosList.module.scss'
 
 const TodosList = observer(() => {
   const todos = todosStore.todos
-  console.log(todos)
 
   return (
     <div className={styles.container}>

@@ -13,6 +13,7 @@
   "dependencies": {
     "@mobx-devtools/tools": "^0.0.4",
     "classnames": "^2.3.2",
+    "crypto": "^1.0.1",
     "mobx": "^6.10.2",
     "mobx-react-lite": "^4.0.4",
     "nanoid": "^4.0.2",
@@ -24,6 +25,7 @@
     "sass": "^1.66.1"
   },
   "devDependencies": {
+    "@types/node": "^20.6.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",

@@ -30,8 +30,6 @@ const CreateNewTodo = () => {
     }
   }, [containerRef])
 
-  console.log(focused)
-
   return (
     <div ref={containerRef} onFocus={onFocus} className={styles.container}>
       {focused && <input className={styles.input} type='text' placeholder='Заголовок' />}
