@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 85%;
+  margin: 20px 0 10px;
+}
+
+.title {
+  padding: 0;
+  margin: 0;
+  line-height: 2.3rem;
+}
+
+.select {
+  width: 50%;
+
+  [class$='-control'] {
+    background-color: var(--bg-primary);
+    border-radius: 20px;
+    outline: none !important;
+    border: 1px solid var(--bg-secondary);
+    box-shadow: none;
+    //color: var(--fg);
+    &:focus-within {
+      border: 1px solid var(--bg-secondary);
+      outline: none;
+    }
+    &:focus {
+      border: 1px solid var(--bg-secondary);
+      outline: 1px solid var(--bg-primary);
+    }
+
+    //&:target-within {
+    //  border: 3px solid var(--bg-secondary);
+    //  //outline: none !important;
+    //}
+  }
+  [class$='-singleValue'] {
+    color: var(--fg);
+  }
+  [class$='-Input2'] {
+    color: var(--fg) !important;
+  }
+  [class$='-indicatorContainer'] {
+    color: var(--fg) !important;
+  }
+  [class$='-indicatorSeparator'] {
+    background-color: transparent;
+  }
+  [class$='-menu'] {
+    background-color: var(--bg-primary);
+    border-radius: 20px;
+    border: 1px solid var(--bg-secondary);
+  }
+  [class$='-option'] {
+    //background-color: var(--bg-secondary) ;
+    margin: 6px auto;
+    width: 92%;
+    border-radius: 11px;
+  }
+}
+
+@media screen and (max-width: 446px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .select {
+    width: 80%;
+  }
+}

@@ -20,21 +20,23 @@
   --peach: #fc76a1;
   --violet: #e479cd;
   --light: #d2d2d3;
+  --white: #ffffff;
 }
 
-//-webkit-linear-gradient(44deg, #e479cd,#fc76a1);
-
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
     --bg-primary: var(--dark);
     --bg-secondary: var(--gray);
     --fg: var(--light);
     --check: linear-gradient(44deg, var(--violet), var(--peach)), - webkit-linear-gradient(44deg, var(--violet), var(--peach));
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-primary: var(--white);
+    --bg-secondary: var(--light);
+    --fg: var(--gray);
+    --check: linear-gradient(44deg, var(--violet), var(--peach)), - webkit-linear-gradient(44deg, var(--violet), var(--peach));
   }
 }
