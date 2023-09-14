@@ -2,6 +2,7 @@
 import { makeAutoObservable } from 'mobx'
 import { injectStores } from '@mobx-devtools/tools'
 import { nanoid } from 'nanoid'
+import { getSortedArray } from '../helpers/getSortedArray'
 import { initTodos } from '../constants'
 import { TTodos } from '../types'
 
@@ -16,7 +17,18 @@ class createTodosStore {
   }
 
   get sorted() {
-    return this.todos.slice().sort((a, b) => (a.isChecked === b.isChecked ? 0 : a.isChecked ? -1 : 1))
+    const copyTodos = this.todos.slice()
+    const currentOption = this.currentSortSelectionOption
+
+    if (currentOption === 'date-create-new') {
+      return getSortedArray({ arr: copyTodos, key: 'dateCreate', by: 'desc' })
+    } else if (currentOption === 'date-create-old') {
+      return getSortedArray({ arr: copyTodos, key: 'dateCreate', by: 'asc' })
+    } else if (currentOption === 'completed') {
+      return getSortedArray({ arr: copyTodos, key: 'isChecked', by: 'desc' })
+    } else if (currentOption === 'not-completed') {
+      return getSortedArray({ arr: copyTodos, key: 'isChecked', by: 'asc' })
+    }
   }
 
   addTodos = () => {
@@ -36,22 +48,6 @@ class createTodosStore {
       return [newTodo, ...todos]
     }
 
-    //this.todos = addTodos(this.todos, this.body);
-    //this.body = '';
-
-    //const addTodo = (
-    //  todos: TTodos[],
-    //  title: string,
-    //  body: string
-    //): TTodos[] => [
-    //  {
-    //    id: nanoid(),
-    //    title,
-    //    body,
-    //    lastModified: Date.now(),
-    //  },
-    //  ...todos,
-    //];
     this.todos = addTodo(this.todos)
   }
 
