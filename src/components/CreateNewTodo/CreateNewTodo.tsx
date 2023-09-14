@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
 import { IoMdAdd } from 'react-icons/io'
+import { todosStore } from '../../stores/todosStore'
 import styles from './CreateNewTodo.module.scss'
 
 const CreateNewTodo = () => {
@@ -8,6 +9,8 @@ const CreateNewTodo = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)
 
   const [focused, setFocused] = useState(false)
+  const [title, setTitle] = useState('')
+  const [body, setBody] = useState('')
   const onFocus = () => setFocused(true)
 
   useEffect(() => {
@@ -30,13 +33,20 @@ const CreateNewTodo = () => {
     }
   }, [containerRef])
 
+  const handleClick = () => {
+    todosStore.addTodos(title, body)
+    setBody('')
+    setTitle('')
+    setFocused(false)
+  }
+
   return (
     <div ref={containerRef} onFocus={onFocus} className={styles.container}>
-      {focused && <input className={styles.input} type='text' placeholder='Заголовок' />}
+      {focused && <input value={title} onChange={(e) => setTitle(e.target.value)} className={styles.input} type='text' placeholder='Заголовок' />}
       <div className={styles.textareaContainer}>
-        <TextareaAutosize className={styles.textarea} ref={textareaRef} style={{ width: '100%' }} maxRows={20} placeholder='Задача...' />
+        <TextareaAutosize value={body} onChange={(e) => setBody(e.target.value)} className={styles.textarea} ref={textareaRef} style={{ width: '100%' }} maxRows={20} placeholder='Задача...' />
         {
-          <button className={styles.buttonAdd} onClick={() => textareaRef.current && textareaRef.current.focus()}>
+          <button disabled={!body} className={styles.buttonAdd} onClick={handleClick}>
             <IoMdAdd />
           </button>
         }

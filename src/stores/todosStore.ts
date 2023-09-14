@@ -31,20 +31,20 @@ class createTodosStore {
     }
   }
 
-  addTodos = () => {
+  addTodos = (title: string, body: string) => {
     const addTodo = (todos: TTodos[]): TTodos[] => {
       const newTodo: TTodos = {
         id: nanoid(),
-        title: '',
-        body: '',
+        title,
+        body,
         isChecked: false,
         lastModified: Date.now(),
         create: Date.now(),
       }
-      if (newTodo.id) {
-        this.currentTodoId = newTodo.id
-      }
-      this.currentTodo = newTodo
+      //if (newTodo.id) {
+      //  this.currentTodoId = newTodo.id
+      //}
+      //this.currentTodo = newTodo
       return [newTodo, ...todos]
     }
 
