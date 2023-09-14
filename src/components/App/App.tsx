@@ -2,6 +2,7 @@ import { observer } from 'mobx-react-lite'
 import CreateNewTodo from '../CreateNewTodo/CreateNewTodo'
 import Dropdown from '../SortTodo/SortSelectionMenu'
 import TodosList from '../TodoList/TodoList'
+import TodoEditor from '../TodoEditor/TodoEditor'
 import styles from './App.module.scss'
 //import cn from 'classnames'
 
@@ -14,6 +15,7 @@ const App = observer(() => {
       <CreateNewTodo />
       <Dropdown />
       <TodosList />
+      <TodoEditor />
     </main>
   )
 })

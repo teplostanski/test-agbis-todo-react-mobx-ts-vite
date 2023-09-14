@@ -53,7 +53,6 @@ class createTodosStore {
 
   setCurrentTodoId(id: string) {
     this.currentTodoId = id
-    console.log(id)
   }
 
   getCurrentTodo(ids: string) {
@@ -65,10 +64,10 @@ class createTodosStore {
     //console.log(this.currentTodo.title);
   }
 
-  onUpdateTodo = (updatedTodo: any) => {
+  onUpdateTodo = (currentTodo: any) => {
     const updatedTodosArr = this.todos.map((note: any) => {
-      if (note.id === updatedTodo.id) {
-        return updatedTodo
+      if (note.id === currentTodo.id) {
+        return currentTodo
       }
 
       return note

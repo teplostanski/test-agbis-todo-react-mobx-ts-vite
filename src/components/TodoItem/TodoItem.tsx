@@ -19,9 +19,9 @@ const TodosItem = observer(({ title, body, id, check, create }: TTodosItem) => {
   }
 
   return (
-    <div className={styles.container} onClick={handleCurrentTodo}>
-      <input type='checkbox' onClick={() => todosStore.setCompleted(id)} />
-      <div className={cn(check && styles.done)}>
+    <div className={styles.container}>
+      <input type='checkbox' checked={check} readOnly onClick={() => todosStore.setCompleted(id)} />
+      <div onClick={handleCurrentTodo} className={cn(check && styles.done)}>
         <h2>{title}</h2>
         <p>{body}</p>
         <span>{create}</span>

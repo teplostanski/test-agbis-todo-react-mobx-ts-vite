@@ -8,15 +8,12 @@ import { sortSelectionOptions as options, colorStyles } from '../../constants'
 import styles from './SortSelectionMenu.module.scss'
 
 const SortSelectionMenu = observer(() => {
-  const currentOption = todosStore.currentSortSelectionOption
-  const setCurrentOption = todosStore.setCurrentSortSelectionOption
+  const { currentSortSelectionOption: currentOption, setCurrentSortSelectionOption: setCurrentOption } = todosStore
 
   useEffect(() => {
     setCurrentOption(options[0].values)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  console.log(currentOption)
 
   const getValue = () => {
     return currentOption ? options.find((i) => i.values === currentOption) : []

@@ -5,6 +5,8 @@ import { todosStore } from '../../stores/todosStore'
 import styles from './CreateNewTodo.module.scss'
 
 const CreateNewTodo = () => {
+  const { addTodos } = todosStore
+
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
 
@@ -34,7 +36,7 @@ const CreateNewTodo = () => {
   }, [containerRef])
 
   const handleClick = () => {
-    todosStore.addTodos(title, body)
+    addTodos(title, body)
     setBody('')
     setTitle('')
     setFocused(false)

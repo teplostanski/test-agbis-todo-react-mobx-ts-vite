@@ -1,0 +1,56 @@
+.modal {
+  background: violet;
+  border-radius: 8px;
+  width: min-content;
+  height: fit-content;
+  padding: 48px;
+  position: relative;
+  max-height: 100vh;
+}
+
+.overlay {
+  height: 100vh;
+  width: 100vw;
+  background: #00000048;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10px;
+    height: 20px;
+    width: 1px;
+    background-color: white;
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+}
