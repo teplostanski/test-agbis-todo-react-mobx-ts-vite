@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import CreateNewTodo from '../CreateNewTodo/CreateNewTodo'
-import Dropdown from '../Dropdown/Dropdown'
+import Dropdown from '../SortTodo/SortSelectionMenu'
 import TodosList from '../TodoList/TodoList'
 import styles from './App.module.scss'
 //import cn from 'classnames'

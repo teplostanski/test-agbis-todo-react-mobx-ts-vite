@@ -9,9 +9,10 @@ type TTodosItem = {
   body: string
   check: any
   id: string
+  create: string
 }
 
-const TodosItem = observer(({ title, body, id, check }: TTodosItem) => {
+const TodosItem = observer(({ title, body, id, check, create }: TTodosItem) => {
   const handleCurrentTodo = () => {
     todosStore.setCurrentTodoId(id)
     todosStore.getCurrentTodo(id)
@@ -23,6 +24,7 @@ const TodosItem = observer(({ title, body, id, check }: TTodosItem) => {
       <div className={cn(check && styles.done)}>
         <h2>{title}</h2>
         <p>{body}</p>
+        <span>{create}</span>
       </div>
     </div>
   )

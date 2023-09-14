@@ -3,28 +3,25 @@ import { makeAutoObservable } from 'mobx'
 import { injectStores } from '@mobx-devtools/tools'
 import { nanoid } from 'nanoid'
 import { initTodos } from '../constants'
-
-export interface ITodos {
-  id: string
-  title: string
-  body: string
-  isChecked: boolean
-  lastModified: number
-  create: number
-}
+import { TTodos } from '../types'
 
 class createTodosStore {
-  todos: ITodos[] = localStorage.todos ? JSON.parse(localStorage.todos) : initTodos
+  todos: TTodos[] = localStorage.todos ? JSON.parse(localStorage.todos) : initTodos
   currentTodoId: string = ''
   currentTodo: any = {}
+  currentSortSelectionOption: string = ''
 
   constructor() {
     makeAutoObservable(this)
   }
 
+  get sorted() {
+    return this.todos.slice().sort((a, b) => (a.isChecked === b.isChecked ? 0 : a.isChecked ? -1 : 1))
+  }
+
   addTodos = () => {
-    const addTodo = (todos: ITodos[]): ITodos[] => {
-      const newTodo: ITodos = {
+    const addTodo = (todos: TTodos[]): TTodos[] => {
+      const newTodo: TTodos = {
         id: nanoid(),
         title: '',
         body: '',
@@ -43,10 +40,10 @@ class createTodosStore {
     //this.body = '';
 
     //const addTodo = (
-    //  todos: ITodos[],
+    //  todos: TTodos[],
     //  title: string,
     //  body: string
-    //): ITodos[] => [
+    //): TTodos[] => [
     //  {
     //    id: nanoid(),
     //    title,
@@ -64,7 +61,7 @@ class createTodosStore {
   }
 
   getCurrentTodo(ids: string) {
-    const getCurrentTodo = (todos: ITodos[], currentTodoId: string) => {
+    const getCurrentTodo = (todos: TTodos[], currentTodoId: string) => {
       return todos.find(({ id }: { id: string }) => id === currentTodoId)
     }
     this.currentTodo = getCurrentTodo(this.todos, ids)
@@ -97,7 +94,7 @@ class createTodosStore {
   }
 
   onDeleteTodo(todoId: string) {
-    const removeTodo = (todos: ITodos[], ids: string): ITodos[] => todos.filter(({ id }: { id: string }) => id !== ids)
+    const removeTodo = (todos: TTodos[], ids: string): TTodos[] => todos.filter(({ id }: { id: string }) => id !== ids)
     this.todos = removeTodo(this.todos, todoId)
     if (this.currentTodoId !== '') {
       this.currentTodoId = ''
@@ -114,6 +111,10 @@ class createTodosStore {
 
   setCompleted(todoId: string) {
     this.todos.filter((todo) => (todo.id === todoId ? (todo.isChecked = !todo.isChecked) : null))
+  }
+
+  setCurrentSortSelectionOption = (option: any) => {
+    this.currentSortSelectionOption = option
   }
 }
 
