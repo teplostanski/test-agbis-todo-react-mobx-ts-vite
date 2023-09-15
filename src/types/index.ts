@@ -12,7 +12,7 @@ export type TTodos = {
   body: string
   isChecked: boolean
   lastModified: number
-  create: number
+  create: Date
 }
 
 export type TSortSelectionOptions = {

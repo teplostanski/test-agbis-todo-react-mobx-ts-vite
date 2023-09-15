@@ -8,7 +8,7 @@ import { sortSelectionOptions as options, colorStyles } from '../../constants'
 import styles from './SortSelectionMenu.module.scss'
 
 const SortSelectionMenu = observer(() => {
-  const { currentSortSelectionOption: currentOption, setCurrentSortSelectionOption: setCurrentOption } = todosStore
+  const { sortSelectionOption: currentOption, setSortSelectionOption: setCurrentOption } = todosStore
 
   useEffect(() => {
     setCurrentOption(options[0].values)

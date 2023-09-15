@@ -1,17 +1,29 @@
 .modal {
-  background: violet;
-  border-radius: 8px;
-  width: min-content;
+  background: var(--bg-primary);
+  border-radius: 24px;
+  border: 0.5px solid var(--border);
+  min-width: 240px;
+  margin: 0 30px;
+  max-width: 450px;
+  width: 100%;
   height: fit-content;
-  padding: 48px;
+  padding: 26px;
   position: relative;
   max-height: 100vh;
+}
+
+.textareaContainer {
+  margin: 10px 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
 }
 
 .overlay {
   height: 100vh;
   width: 100vw;
-  background: #00000048;
+  backdrop-filter: blur(6px);
+  background: var(--bg-overlay);
+
   position: fixed;
   top: 0;
   left: 0;

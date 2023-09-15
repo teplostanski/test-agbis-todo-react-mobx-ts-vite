@@ -1,0 +1,13 @@
+.button {
+  width: 35px;
+  height: 35px;
+  background:
+    linear-gradient(var(--peach), var(--violet)) padding-box,
+    linear-gradient(0deg, var(--violet), var(--peach)) border-box;
+  border-radius: 13px;
+  border: 4px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}

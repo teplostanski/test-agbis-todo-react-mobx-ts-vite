@@ -1,0 +1,19 @@
+%inputs {
+  background: transparent;
+  width: 100%;
+  border: none;
+  outline: 0px none transparent;
+  color: var(--fg);
+  &:focus {
+    outline: 0;
+  }
+}
+
+.textarea {
+  resize: none;
+  @extend %inputs;
+}
+
+.input {
+  @extend %inputs;
+}

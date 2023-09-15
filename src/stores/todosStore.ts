@@ -10,7 +10,8 @@ class createTodosStore {
   todos: TTodos[] = localStorage.todos ? JSON.parse(localStorage.todos) : initTodos
   currentTodoId: string = ''
   currentTodo: any = {}
-  currentSortSelectionOption: string = ''
+  sortSelectionOption: string = ''
+  isOpenEditPopup: boolean = false
 
   constructor() {
     makeAutoObservable(this)
@@ -18,7 +19,7 @@ class createTodosStore {
 
   get sorted() {
     const copyTodos = this.todos.slice()
-    const currentOption = this.currentSortSelectionOption
+    const currentOption = this.sortSelectionOption
 
     if (currentOption === 'date-create-new') {
       return getSortedArray({ arr: copyTodos, key: 'dateCreate', by: 'desc' })
@@ -39,12 +40,8 @@ class createTodosStore {
         body,
         isChecked: false,
         lastModified: Date.now(),
-        create: Date.now(),
+        create: new Date(),
       }
-      //if (newTodo.id) {
-      //  this.currentTodoId = newTodo.id
-      //}
-      //this.currentTodo = newTodo
       return [newTodo, ...todos]
     }
 
@@ -61,7 +58,6 @@ class createTodosStore {
     }
     this.currentTodo = getCurrentTodo(this.todos, ids)
     this.setCurrentTodoId(ids)
-    //console.log(this.currentTodo.title);
   }
 
   onUpdateTodo = (currentTodo: any) => {
@@ -80,36 +76,24 @@ class createTodosStore {
     this.currentTodoId = ''
   }
 
-  onEditField = ({ field, value }: { field: string; value: any }) => {
-    this.onUpdateTodo({
-      ...this.currentTodo,
-      [field]: value,
-      lastModified: Date.now(),
-    })
-  }
-
-  onDeleteTodo(todoId: string) {
-    const removeTodo = (todos: TTodos[], ids: string): TTodos[] => todos.filter(({ id }: { id: string }) => id !== ids)
+  onDeleteTodo = (todoId: string) => {
+    const removeTodo = (todos: TTodos[], ids: string): TTodos[] => todos.slice().filter(({ id }: { id: string }) => id !== ids)
     this.todos = removeTodo(this.todos, todoId)
     if (this.currentTodoId !== '') {
       this.currentTodoId = ''
     }
   }
 
-  changeBody(value: string) {
-    return (this.currentTodo.body = value)
-  }
-
-  changeTitle(value: string) {
-    return (this.currentTodo.title = value)
-  }
-
   setCompleted(todoId: string) {
     this.todos.filter((todo) => (todo.id === todoId ? (todo.isChecked = !todo.isChecked) : null))
   }
 
-  setCurrentSortSelectionOption = (option: any) => {
-    this.currentSortSelectionOption = option
+  setSortSelectionOption = (option: any) => {
+    this.sortSelectionOption = option
+  }
+
+  setOpenEditPopup = (value: boolean) => {
+    this.isOpenEditPopup = value
   }
 }
 

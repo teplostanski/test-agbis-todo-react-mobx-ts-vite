@@ -27,8 +27,10 @@
   :root {
     --bg-primary: var(--dark);
     --bg-secondary: var(--gray);
+    --bg-overlay: #0000003f;
     --fg: var(--light);
     --check: linear-gradient(44deg, var(--violet), var(--peach)), - webkit-linear-gradient(44deg, var(--violet), var(--peach));
+    --border: #39394e;
   }
 }
 
@@ -36,7 +38,9 @@
   :root {
     --bg-primary: var(--white);
     --bg-secondary: var(--light);
+    --bg-overlay: #0000003f;
     --fg: var(--gray);
     --check: linear-gradient(44deg, var(--violet), var(--peach)), - webkit-linear-gradient(44deg, var(--violet), var(--peach));
+    --border: #7e7e97;
   }
 }
