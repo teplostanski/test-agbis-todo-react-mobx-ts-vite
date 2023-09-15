@@ -39,7 +39,7 @@ class createTodosStore {
         title,
         body,
         isChecked: false,
-        lastModified: Date.now(),
+        dateCreate: Date.now(),
         create: new Date(),
       }
       return [newTodo, ...todos]

@@ -5,7 +5,7 @@ export const initTodos = [
     title: 'first todo',
     body: 'Lorem ipsum dolor sit amet',
     create: new Date(2000, 11, 10),
-    dateCreate: Date.parse('10.12.2000'),
+    dateCreate: 971294400000,
     isChecked: true,
   },
   {
@@ -13,7 +13,7 @@ export const initTodos = [
     title: 'second todo',
     body: 'Pellentesque lacus magna, pellentesque sed velit nec.',
     create: new Date(1999, 1, 1),
-    dateCreate: Date.parse('01.02.1999'),
+    dateCreate: 915224400000,
     isChecked: false,
   },
   {
@@ -21,7 +21,7 @@ export const initTodos = [
     title: 'third todo',
     body: 'Nulla auctor euismod lacus id rhoncus. Donec convallis eu.',
     create: new Date(2008, 7, 12),
-    dateCreate: Date.parse('12.08.2008'),
+    dateCreate: 1228683600000,
     isChecked: true,
   },
   {
@@ -29,7 +29,7 @@ export const initTodos = [
     title: 'fourth todo',
     body: 'Vestibulum tincidunt, neque et.',
     create: new Date(2023, 3, 3),
-    dateCreate: Date.parse('03.04.2023'),
+    dateCreate: 1677877200000,
     isChecked: false,
   },
 ]

@@ -21,8 +21,6 @@ const Item = observer(({ title, body, id, check, create }: TTodosItem) => {
     todosStore.setOpenEditPopup(true)
   }
 
-  console.log(id)
-
   return (
     <div className={styles.container}>
       <input type='checkbox' checked={check} readOnly onClick={() => todosStore.setCompleted(id)} />

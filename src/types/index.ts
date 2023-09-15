@@ -11,7 +11,7 @@ export type TTodos = {
   title: string
   body: string
   isChecked: boolean
-  lastModified: number
+  dateCreate: number
   create: Date
 }
 
