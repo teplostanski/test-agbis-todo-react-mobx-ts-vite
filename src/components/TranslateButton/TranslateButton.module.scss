@@ -1,0 +1,13 @@
+.button {
+  border: none;
+  border-right: 1px solid var(--fg);
+  padding: 0;
+
+  padding: 0 10px;
+  background: transparent;
+  cursor: pointer;
+
+  &:last-child {
+    border: none;
+  }
+}

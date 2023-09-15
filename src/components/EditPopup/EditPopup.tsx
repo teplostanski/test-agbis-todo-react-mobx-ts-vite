@@ -7,12 +7,16 @@ import { Editor } from '../Editor/Editor'
 import { Modal } from '../Modal/Modal'
 import AddButton from '../AddButton/AddButton'
 import styles from './EditPopup.module.scss'
+import { useTranslation } from 'react-i18next'
 
 const EditPopup = observer(() => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { currentTodoId, isOpenEditPopup, setOpenEditPopup, close, currentTodo, onUpdateTodo } = todosStore
   const isOpen = currentTodoId && !!isOpenEditPopup
   const [updatedTodo, setUpdatedTodo] = useState(currentTodo)
+
+  const { t } = useTranslation()
+
   useEffect(() => {
     setUpdatedTodo(currentTodo)
   }, [currentTodo])
@@ -35,7 +39,7 @@ const EditPopup = observer(() => {
         <div className={styles.textareaContainer}>
           <Editor.Textarea value={updatedTodo.body} onChange={(e: { target: { value: any } }) => handleChange(e, 'body')} className={styles.textarea} />
         </div>
-        <AddButton onClick={handleUpdateTodo}>Сохранить</AddButton>
+        <AddButton onClick={handleUpdateTodo}>{t('saveButton')}</AddButton>
       </Modal.Window>
     </Modal.Overlay>
   )

@@ -31,3 +31,10 @@ body,
   min-width: 240px;
   max-width: 600px;
 }
+
+.translateButtons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 95px 0 0;
+}
