@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { observer } from 'mobx-react-lite'
-import { Modal } from '../Modal/Modal'
-import { todosStore } from '../../stores/todosStore'
-import cn from 'classnames'
-import styles from './EditPopup.module.scss'
 import { useEffect, useState } from 'react'
+import cn from 'classnames'
+import { observer } from 'mobx-react-lite'
+import { todosStore } from '../../stores/todosStore'
 import { Editor } from '../Editor/Editor'
+import { Modal } from '../Modal/Modal'
+import AddButton from '../AddButton/AddButton'
+import styles from './EditPopup.module.scss'
 
 const EditPopup = observer(() => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -29,11 +30,12 @@ const EditPopup = observer(() => {
   return (
     <Modal.Overlay className={isOpen ? cn(styles.overlay, styles.active) : styles.overlay} onClose={handleUpdateTodo}>
       <Modal.Window className={styles.modal}>
+        <Modal.Close className={styles.close} onClose={handleUpdateTodo} />
         <Editor.Input value={updatedTodo.title || ''} onChange={(e: { target: { value: any } }) => handleChange(e, 'title')} className={styles.input} />
         <div className={styles.textareaContainer}>
           <Editor.Textarea value={updatedTodo.body} onChange={(e: { target: { value: any } }) => handleChange(e, 'body')} className={styles.textarea} />
         </div>
-        <button onClick={handleUpdateTodo}>Сохранить</button>
+        <AddButton onClick={handleUpdateTodo}>Сохранить</AddButton>
       </Modal.Window>
     </Modal.Overlay>
   )

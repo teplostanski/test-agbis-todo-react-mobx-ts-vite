@@ -19,7 +19,7 @@ const Window = ({ children, ...props }: any) => {
   )
 }
 
-const CloseButton = ({ onClose, children, ...props }: any) => {
+const Close = ({ onClose, children, ...props }: any) => {
   const handleIsOpen = () => onClose(false)
   return (
     <button {...props} onClick={handleIsOpen}>
@@ -31,5 +31,5 @@ const CloseButton = ({ onClose, children, ...props }: any) => {
 export const Modal = Object.assign({
   Overlay,
   Window,
-  CloseButton,
+  Close,
 })

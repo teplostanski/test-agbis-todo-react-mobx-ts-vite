@@ -12,6 +12,33 @@
   max-height: 100vh;
 }
 
+.close {
+  position: absolute;
+  top: 26px;
+  right: 24px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10px;
+    height: 20px;
+    width: 1px;
+    background-color: var(--fg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+}
+
 .textareaContainer {
   margin: 10px 0;
   padding-top: 10px;
@@ -38,31 +65,4 @@
 .overlay.active {
   opacity: 1;
   pointer-events: all;
-}
-
-.close {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  cursor: pointer;
-  border: none;
-  &::after,
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 10px;
-    height: 20px;
-    width: 1px;
-    background-color: white;
-  }
-  &::after {
-    transform: rotate(-45deg);
-  }
-  &::before {
-    transform: rotate(45deg);
-  }
 }
