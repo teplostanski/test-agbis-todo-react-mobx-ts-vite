@@ -50,7 +50,6 @@
   width: 100vw;
   backdrop-filter: blur(6px);
   background: var(--bg-overlay);
-
   position: fixed;
   top: 0;
   left: 0;
@@ -60,9 +59,8 @@
   opacity: 0;
   pointer-events: none;
   z-index: 10;
-}
-
-.overlay.active {
-  opacity: 1;
-  pointer-events: all;
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
 }

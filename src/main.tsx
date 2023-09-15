@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './components/App/App.tsx'
 import 'normalize.css'
-import './index.scss'
+import './index.css'
 
 import './i18n'
 

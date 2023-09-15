@@ -21,8 +21,7 @@
     outline: none !important;
     border: 1px solid var(--bg-secondary);
     box-shadow: none;
-    //color: var(--fg);
-    &:focus-within {
+    \ &:focus-within {
       border: 1px solid var(--bg-secondary);
       outline: none;
     }
@@ -30,11 +29,6 @@
       border: 1px solid var(--bg-secondary);
       outline: 1px solid var(--bg-primary);
     }
-
-    //&:target-within {
-    //  border: 3px solid var(--bg-secondary);
-    //  //outline: none !important;
-    //}
   }
   [class$='-singleValue'] {
     color: var(--fg);
@@ -54,7 +48,6 @@
     border: 1px solid var(--bg-secondary);
   }
   [class$='-option'] {
-    //background-color: var(--bg-secondary) ;
     margin: 6px auto;
     width: 92%;
     border-radius: 11px;
