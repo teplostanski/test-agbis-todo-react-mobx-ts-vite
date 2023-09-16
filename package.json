@@ -7,7 +7,6 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --fix",
-    "preview": "vite preview",
     "prettier": "prettier --write \"src/**/*.{js,ts,jsx,tsx,css,scss,json}\""
   },
   "dependencies": {

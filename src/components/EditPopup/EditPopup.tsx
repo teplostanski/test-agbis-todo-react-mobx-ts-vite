@@ -20,6 +20,7 @@ const EditPopup = observer(() => {
   useEffect(() => {
     setUpdatedTodo(currentTodo)
   }, [currentTodo])
+
   const handleUpdateTodo = () => {
     onUpdateTodo(updatedTodo)
     close()
@@ -31,13 +32,27 @@ const EditPopup = observer(() => {
     onUpdateTodo(updatedTodo)
   }
 
+  //const log = () => {
+  //  console.log('key down')
+  //}
+
   return (
     <Modal.Overlay className={isOpen ? cn(styles.overlay, styles.active) : styles.overlay} onClose={handleUpdateTodo}>
       <Modal.Window className={styles.modal}>
         <Modal.Close className={styles.close} onClose={handleUpdateTodo} />
-        <Editor.Input value={updatedTodo.title || ''} onChange={(e: { target: { value: any } }) => handleChange(e, 'title')} className={styles.input} />
+        <Editor.Input
+          onKeyDown={handleUpdateTodo}
+          value={updatedTodo.title || ''}
+          onChange={(e: { target: { value: any } }) => handleChange(e, 'title')}
+          className={styles.input}
+        />
         <div className={styles.textareaContainer}>
-          <Editor.Textarea value={updatedTodo.body} onChange={(e: { target: { value: any } }) => handleChange(e, 'body')} className={styles.textarea} />
+          <Editor.Textarea
+            onKeyDown={handleUpdateTodo}
+            value={updatedTodo.body}
+            onChange={(e: { target: { value: any } }) => handleChange(e, 'body')}
+            className={styles.textarea}
+          />
         </div>
         <AddButton onClick={handleUpdateTodo}>{t('saveButton')}</AddButton>
       </Modal.Window>

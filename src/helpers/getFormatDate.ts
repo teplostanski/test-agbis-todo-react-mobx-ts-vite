@@ -1,11 +1,4 @@
-export type TFormatDate = {
-  date?: Date | undefined | string | number
-  sep?: string
-  iso?: boolean
-  monthsArray?: string[]
-  incDay?: number | undefined
-  decDay?: number | undefined
-}
+import { TFormatDate } from '../types'
 
 export const getFormatDate = ({ date = new Date(), sep = '.' }: TFormatDate): string => {
   const localDate = new Date(date)

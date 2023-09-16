@@ -6,5 +6,7 @@
   "sortSelectionMenuItemOld": "Дата создания: Старые",
   "sortSelectionMenuItemActive": "Активные",
   "sortSelectionMenuItemCompleted": "Выполненные",
-  "saveButton": "Сохранить"
+  "saveButton": "Сохранить",
+  "hintInput": "Нажмите ENTER чтобы сохранить",
+  "hintTextarea": "Нажмите SHIFT+ENTER чтобы сохранить"
 }

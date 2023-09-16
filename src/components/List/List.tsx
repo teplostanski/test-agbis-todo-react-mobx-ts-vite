@@ -14,7 +14,7 @@ const List = observer(() => {
         sorted.map(({ title, id, body, isChecked, create }) => (
           <ul key={id} className={styles.list}>
             <li className={styles.item}>
-              <Item title={title} body={body} id={id} check={isChecked} create={create.toString()} />
+              <Item title={title} body={body} id={id} isChecked={isChecked} create={create.toString()} dateCreate={0} />
             </li>
           </ul>
         ))}

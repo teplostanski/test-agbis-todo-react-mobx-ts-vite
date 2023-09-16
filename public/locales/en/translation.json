@@ -6,5 +6,7 @@
   "sortSelectionMenuItemOld": "Date of creation: Old",
   "sortSelectionMenuItemActive": "Active",
   "sortSelectionMenuItemCompleted": "Completed",
-  "saveButton": "Save"
+  "saveButton": "Save",
+  "hintInput": "Press ENTER to save",
+  "hintTextarea": "Press SHIFT+ENTER to save"
 }
