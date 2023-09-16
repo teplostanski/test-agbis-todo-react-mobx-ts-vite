@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { SetStateAction, useEffect, useRef, useState } from 'react'
-import { Editor } from '../Editor/Editor'
+import { Editor } from '../../ui/Editor/Editor'
 import { IoMdAdd } from 'react-icons/io'
 import { todosStore } from '../../stores/todosStore'
 import styles from './CreateNewTodo.module.scss'
-import Button from '../AddButton/AddButton'
+import Button from '../../ui/AddButton/AddButton'
 
 const CreateNewTodo = () => {
   const { addTodos } = todosStore

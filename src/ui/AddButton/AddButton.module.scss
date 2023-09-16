@@ -10,5 +10,9 @@
   justify-content: center;
   align-items: center;
   font-size: 18px;
+  color: var(--bg-primary);
   cursor: pointer;
+  &:disabled {
+    color: #6c6c6c;
+  }
 }

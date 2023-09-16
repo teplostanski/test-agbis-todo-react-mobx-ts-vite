@@ -1,11 +1,11 @@
 import { observer } from 'mobx-react-lite'
 import { useTranslation } from 'react-i18next'
 import CreateNewTodo from '../CreateNewTodo/CreateNewTodo'
-import SortSelectionMenu from '../SortSelectionMenu/SortSelectionMenu'
+import SortSelectionMenu from '../../ui/SortSelectionMenu/SortSelectionMenu'
 import TodosList from '../List/List'
 import EditPopup from '../EditPopup/EditPopup'
 import styles from './App.module.scss'
-import TranslateButton from '../TranslateButton/TranslateButton'
+import TranslateButton from '../../ui/TranslateButton/TranslateButton'
 //import cn from 'classnames'
 
 const App = observer(() => {

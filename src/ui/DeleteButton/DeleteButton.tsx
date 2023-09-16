@@ -8,7 +8,7 @@ const DeleteButton = observer(({ id }: { id: string }) => {
 
   return (
     <button className={styles.button} onClick={() => onDeleteTodo(id)}>
-      <MdDelete />
+      <MdDelete size={25} />
     </button>
   )
 })
