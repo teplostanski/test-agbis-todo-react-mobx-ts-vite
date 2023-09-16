@@ -8,5 +8,6 @@
   "sortSelectionMenuItemCompleted": "Completed",
   "saveButton": "Save",
   "hintInput": "Press ENTER to save",
-  "hintTextarea": "Press SHIFT+ENTER to save"
+  "hintTextarea": "Press SHIFT+ENTER to save",
+  "errorHintTextarea": "The 'Task...' field cannot be empty"
 }

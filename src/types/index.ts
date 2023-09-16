@@ -4,7 +4,7 @@ import { ChangeEventHandler } from 'react'
 
 type TEditorProps = {
   value: string | number | readonly string[] | undefined
-  onKeyDown: () => void
+  onKeyDown: any
 }
 
 export type TEditorInputProps = TEditorProps & {
@@ -13,6 +13,7 @@ export type TEditorInputProps = TEditorProps & {
 
 export type TEditorTextareaProps = TEditorProps & {
   onChange: ChangeEventHandler<HTMLTextAreaElement>
+  errorHint: boolean
 }
 
 export type TGetSortedArray = {
@@ -22,7 +23,7 @@ export type TGetSortedArray = {
 }
 
 export type TArray = {
-  [item: string]: string | number
+  [item: string]: any
 }
 
 export type TTodos = {

@@ -1,20 +1,10 @@
-import { Ref, forwardRef, useState } from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Ref, forwardRef } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
 import styles from './Editor.module.scss'
 import { useTranslation } from 'react-i18next'
 import { TEditorInputProps, TEditorTextareaProps } from '../../types'
-
-const useFocused = () => {
-  const [focused, setFocused] = useState(false)
-  const onFocus = () => setFocused(true)
-  const onBlur = () => setFocused(false)
-
-  return {
-    focused,
-    onBlur,
-    onFocus,
-  }
-}
+import { useFocused } from '../../hooks/useFocused'
 
 const Input = ({ onChange, value, onKeyDown, ...props }: TEditorInputProps) => {
   const { focused, onBlur, onFocus } = useFocused()
@@ -39,17 +29,18 @@ const Input = ({ onChange, value, onKeyDown, ...props }: TEditorInputProps) => {
         type='text'
         placeholder={t('titlePlaceholder')}
       />
-      {focused && <div className={styles.hint}>{t('hintInput')}</div>}
+      {value && focused && <div className={styles.hint}>{t('hintInput')}</div>}
     </div>
   )
 }
 
-const Textarea = forwardRef(({ onChange, value, onKeyDown, ...props }: TEditorTextareaProps, ref: Ref<HTMLTextAreaElement>) => {
+const Textarea = forwardRef(({ onChange, value, onKeyDown, errorHint, ...props }: TEditorTextareaProps, ref: Ref<HTMLTextAreaElement>) => {
   const { focused, onBlur, onFocus } = useFocused()
   const { t } = useTranslation()
 
-  const handleKeyDown = (e: { shiftKey: boolean; key: string }) => {
+  const handleKeyDown = (e: { preventDefault(): unknown; shiftKey: boolean; key: string }) => {
     if (e.key === 'Enter' && e.shiftKey) {
+      e.preventDefault()
       onKeyDown()
     }
   }
@@ -68,7 +59,8 @@ const Textarea = forwardRef(({ onChange, value, onKeyDown, ...props }: TEditorTe
         maxRows={20}
         placeholder={t('bodyPlaceholder')}
       />
-      {focused && <div className={styles.hint}>{t('hintTextarea')}</div>}
+      {value && focused && <div className={styles.hint}>{t('hintTextarea')}</div>}
+      {errorHint && !value && <div className={styles.errorHint}>{t('errorHintTextarea')}</div>}
     </div>
   )
 })

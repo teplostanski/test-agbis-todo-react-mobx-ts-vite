@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SetStateAction, useEffect, useRef, useState } from 'react'
 import { Editor } from '../Editor/Editor'
 import { IoMdAdd } from 'react-icons/io'
@@ -13,8 +14,9 @@ const CreateNewTodo = () => {
 
   const [focused, setFocused] = useState(false)
   const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+  const [body, setBody] = useState<any>('')
   const onFocus = () => setFocused(true)
+  const [errorHint, setErrorHint] = useState<boolean>(false)
 
   useEffect(() => {
     /**
@@ -36,18 +38,33 @@ const CreateNewTodo = () => {
     }
   }, [containerRef])
 
+  useEffect(() => {
+    if (!focused) {
+      setErrorHint(false)
+    }
+  }, [focused])
+
   const handleClick = () => {
-    addTodos(title, body)
-    setBody('')
-    setTitle('')
-    setFocused(false)
+    if (body) {
+      addTodos(title, body)
+      setTitle('')
+      setBody('')
+    } else if (!body && focused) {
+      setErrorHint(true)
+    }
   }
 
   return (
     <div ref={containerRef} onFocus={onFocus} className={styles.container}>
-      {focused && <Editor.Input value={title} onChange={(e: { target: { value: SetStateAction<string> } }) => setTitle(e.target.value)} />}
+      {focused && <Editor.Input onKeyDown={handleClick} value={title} onChange={(e: { target: { value: SetStateAction<string> } }) => setTitle(e.target.value)} />}
       <div className={styles.textareaContainer}>
-        <Editor.Textarea value={body} onChange={(e: { target: { value: SetStateAction<string> } }) => setBody(e.target.value)} ref={textareaRef} />
+        <Editor.Textarea
+          errorHint={errorHint}
+          value={body}
+          onKeyDown={handleClick}
+          onChange={(e: { target: { value: SetStateAction<string> } }) => setBody(e.target.value)}
+          ref={textareaRef}
+        />
 
         <Button disabled={!body} onClick={handleClick}>
           <IoMdAdd />

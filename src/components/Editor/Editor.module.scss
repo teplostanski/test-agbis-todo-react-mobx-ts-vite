@@ -9,6 +9,10 @@
   }
 }
 
+%hint {
+  font-size: 12px;
+}
+
 .textareaContainer {
   display: flex;
   flex-direction: column;
@@ -16,8 +20,13 @@
 }
 
 .hint {
-  font-size: 12px;
+  @extend %hint;
   color: #c2c2c2;
+}
+
+.errorHint {
+  @extend %hint;
+  color: #e65656;
 }
 
 .textarea {
