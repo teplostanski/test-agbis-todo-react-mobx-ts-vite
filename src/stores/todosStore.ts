@@ -12,13 +12,29 @@ class createTodosStore {
   currentTodo: any = {}
   sortSelectionOption: string = ''
   isOpenEditPopup: boolean = false
+  selectedTabId: string | number = 0
 
   constructor() {
     makeAutoObservable(this)
   }
 
-  get sorted() {
+  get filtred() {
     const copyTodos = this.todos.slice()
+    const id = this.selectedTabId
+
+    if (id === 0) {
+      return copyTodos
+    } else if (id === 1) {
+      return copyTodos.filter((id) => !id.isChecked)
+    } else if (id === 2) {
+      return copyTodos.filter((id) => id.isChecked)
+    } else {
+      return copyTodos
+    }
+  }
+
+  get sorted() {
+    const copyTodos = this.filtred.slice()
     const currentOption = this.sortSelectionOption
 
     if (currentOption === 'date-create-new') {
@@ -27,7 +43,7 @@ class createTodosStore {
       return getSortedArray({ arr: copyTodos, key: 'dateCreate', by: 'asc' })
     } else if (currentOption === 'completed') {
       return getSortedArray({ arr: copyTodos, key: 'isChecked', by: 'desc' })
-    } else if (currentOption === 'not-completed') {
+    } else if (currentOption === 'active') {
       return getSortedArray({ arr: copyTodos, key: 'isChecked', by: 'asc' })
     }
   }
@@ -50,6 +66,10 @@ class createTodosStore {
 
   setCurrentTodoId(id: string) {
     this.currentTodoId = id
+  }
+
+  setSelectedTabId(id: string | number) {
+    this.selectedTabId = id
   }
 
   getCurrentTodo(ids: string) {

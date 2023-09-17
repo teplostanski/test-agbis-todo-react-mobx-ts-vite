@@ -17,7 +17,7 @@ const SortSelectionMenu = observer(() => {
     { values: 'date-create-new', label: t('sortSelectionMenuItemNew') },
     { values: 'date-create-old', label: t('sortSelectionMenuItemOld') },
     { values: 'completed', label: t('sortSelectionMenuItemCompleted') },
-    { values: 'not-completed', label: t('sortSelectionMenuItemActive') },
+    { values: 'active', label: t('sortSelectionMenuItemActive') },
   ]
 
   useEffect(() => {

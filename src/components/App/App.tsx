@@ -6,6 +6,7 @@ import TodosList from '../List/List'
 import EditPopup from '../EditPopup/EditPopup'
 import styles from './App.module.scss'
 import TranslateButton from '../../ui/TranslateButton/TranslateButton'
+import FilterTabs from '../FilterTabs/FilterTabs'
 //import cn from 'classnames'
 
 const App = observer(() => {
@@ -25,6 +26,7 @@ const App = observer(() => {
       </div>
       <CreateNewTodo />
       <SortSelectionMenu />
+      <FilterTabs />
       <TodosList />
       <EditPopup />
     </main>

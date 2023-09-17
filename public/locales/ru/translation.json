@@ -9,5 +9,8 @@
   "saveButton": "Сохранить",
   "hintInput": "Нажмите ENTER чтобы сохранить",
   "hintTextarea": "Нажмите SHIFT+ENTER чтобы сохранить",
-  "errorHintTextarea": "Поле 'Задача...' не может быть пустым"
+  "errorHintTextarea": "Поле 'Задача...' не может быть пустым",
+  "tabLabelAll": "Все",
+  "tabLabelActive": "Активные",
+  "tabLabelCompleted": "Выполненные"
 }

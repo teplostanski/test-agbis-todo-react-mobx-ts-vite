@@ -9,5 +9,8 @@
   "saveButton": "Save",
   "hintInput": "Press ENTER to save",
   "hintTextarea": "Press SHIFT+ENTER to save",
-  "errorHintTextarea": "The 'Task...' field cannot be empty"
+  "errorHintTextarea": "The 'Task...' field cannot be empty",
+  "tabLabelAll": "All",
+  "tabLabelActive": "Active",
+  "tabLabelCompleted": "Completed"
 }

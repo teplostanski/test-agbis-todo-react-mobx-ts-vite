@@ -1,0 +1,28 @@
+.tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 85%;
+  justify-content: space-evenly;
+}
+
+.tab {
+  cursor: pointer;
+  background: var(--bg-secondary);
+  border-radius: 18px;
+  color: var(--fg);
+  &:hover > .label:hover {
+    background: var(--violet);
+    border-radius: 18px;
+  }
+}
+
+.label {
+  color: var(--bg-primary);
+  padding: 6px 24px;
+  color: var(--fg);
+  &__selected {
+    border: 2px solid var(--violet);
+    border-radius: 18px;
+  }
+}

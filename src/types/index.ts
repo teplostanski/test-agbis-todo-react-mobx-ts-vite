@@ -17,7 +17,7 @@ export type TEditorTextareaProps = TEditorProps & {
 }
 
 export type TGetSortedArray = {
-  arr: any[]
+  arr: TTodos[] | undefined
   key?: string
   by?: 'asc' | 'desc'
 }
@@ -43,4 +43,18 @@ export type TSortSelectionOptions = {
 export type TFormatDate = {
   date?: Date | undefined | string | number
   sep?: string
+}
+
+export type TTab = string | number
+
+export type TTabs = {
+  id: TTab
+  label: TTab
+}
+
+export type TTabsProps = {
+  className?: { tabs: string; tab: { tab: string; selected: string }; label: { label: string; selected: string } }
+  tabs: TTabs[]
+  selectedId: TTab
+  onClick: (id: TTab) => void
 }
