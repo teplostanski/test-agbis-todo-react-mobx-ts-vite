@@ -18,17 +18,19 @@ const App = observer(() => {
 
   return (
     <main className={styles.app}>
-      <div className={styles.translateButtons}>
-        <TranslateButton changeLanguage={changeLanguage} />
-      </div>
-      <div className={styles.container}>
-        <h1 className={styles.title}>Todo app</h1>
-      </div>
-      <CreateNewTodo />
-      <SortSelectionMenu />
-      <FilterTabs />
-      <TodosList />
-      <EditPopup />
+      <section className={styles.wrapper}>
+        <div className={styles.translateButtons}>
+          <TranslateButton changeLanguage={changeLanguage} />
+        </div>
+        <div className={styles.container}>
+          <h1 className={styles.title}>Todo app</h1>
+        </div>
+        <CreateNewTodo />
+        <SortSelectionMenu />
+        <FilterTabs />
+        <TodosList />
+        <EditPopup />
+      </section>
     </main>
   )
 })

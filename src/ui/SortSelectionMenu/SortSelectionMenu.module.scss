@@ -61,6 +61,16 @@
   }
 
   .select {
-    width: 80%;
+    width: 100%;
+    [class$='-control'] {
+      font-size: 15px;
+    }
+    [class$='-option'] {
+      font-size: 15px;
+    }
+  }
+
+  .title {
+    display: none;
   }
 }

@@ -60,3 +60,10 @@
     background-color: #e9ecef;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .checkIcon {
+    top: -1px;
+    left: -1px;
+  }
+}

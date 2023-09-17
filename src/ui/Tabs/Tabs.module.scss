@@ -26,3 +26,20 @@
     border-radius: 18px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .label {
+    padding: 4px 14px;
+    font-size: 15px;
+  }
+
+  .tabs {
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 348px) {
+  .label {
+    padding: 2px 10px;
+  }
+}
