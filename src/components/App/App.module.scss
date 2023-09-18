@@ -43,17 +43,37 @@ body {
 @media screen and (max-width: 860px) {
   .wrapper {
     width: 85vw;
+    padding: 0 110px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .wrapper {
+    padding: 0 80px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .wrapper {
+    padding: 0 40px;
   }
 }
 
 @media screen and (max-width: 580px) {
   .wrapper {
     width: 95vw;
+    //padding: 0 110px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .app {
     font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .wrapper {
+    padding: 0 15px;
   }
 }

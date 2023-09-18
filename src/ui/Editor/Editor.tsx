@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Ref, forwardRef } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
+import { BrowserView } from 'react-device-detect'
 import styles from './Editor.module.scss'
 import { useTranslation } from 'react-i18next'
 import { TEditorInputProps, TEditorTextareaProps } from '../../types'
@@ -59,7 +60,9 @@ const Textarea = forwardRef(({ onChange, value, onKeyDown, errorHint, ...props }
         maxRows={20}
         placeholder={t('bodyPlaceholder')}
       />
-      {value && focused && <div className={styles.hint}>{t('hintTextarea')}</div>}
+
+      <BrowserView>{value && focused && <div className={styles.hint}>{t('hintTextarea')}</div>}</BrowserView>
+
       {errorHint && !value && <div className={styles.errorHint}>{t('errorHintTextarea')}</div>}
     </div>
   )
