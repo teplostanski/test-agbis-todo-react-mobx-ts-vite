@@ -1,17 +1,26 @@
 import { ReactNode } from 'react'
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-const Overlay = ({ onClose, children, className }: { onClose: any; children: ReactNode; className: string }) => {
-  const handleIsOpen = () => onClose(false)
+type TModalProps = {
+  isOpen?: boolean
+  onClose?: () => void
+  children: ReactNode
+  className?: string
+}
+
+const Overlay = ({ isOpen, onClose, children, className }: TModalProps) => {
   return (
-    <div className={className} onClick={handleIsOpen}>
-      {children}
-    </div>
+    <>
+      {isOpen && (
+        <div className={className} onClick={onClose}>
+          {children}
+        </div>
+      )}
+    </>
   )
 }
 
-const Window = ({ children, ...props }: any) => {
-  const handleStopPropagation = (e: { stopPropagation: () => any }) => e.stopPropagation()
+const Window = ({ children, ...props }: TModalProps) => {
+  const handleStopPropagation = (e: { stopPropagation: () => void }) => e.stopPropagation()
   return (
     <section {...props} onClick={handleStopPropagation}>
       {children}
@@ -19,10 +28,9 @@ const Window = ({ children, ...props }: any) => {
   )
 }
 
-const Close = ({ onClose, children, ...props }: any) => {
-  const handleIsOpen = () => onClose(false)
+const Close = ({ onClose, children, ...props }: TModalProps) => {
   return (
-    <button {...props} onClick={handleIsOpen}>
+    <button {...props} onClick={onClose}>
       {children}
     </button>
   )

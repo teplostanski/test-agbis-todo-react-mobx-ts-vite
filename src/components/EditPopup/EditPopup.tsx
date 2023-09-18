@@ -38,7 +38,7 @@ const EditPopup = observer(() => {
   }
 
   return (
-    <Modal.Overlay className={isOpen ? cn(styles.overlay, styles.active) : styles.overlay} onClose={handleUpdateTodo}>
+    <Modal.Overlay isOpen={isOpen} className={cn(styles.overlay)} onClose={handleUpdateTodo}>
       <Modal.Window className={styles.modal}>
         <Modal.Close className={styles.close} onClose={handleUpdateTodo} />
         <Editor.Input
