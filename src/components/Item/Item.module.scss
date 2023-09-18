@@ -7,10 +7,8 @@
   border-radius: 25px;
   padding: 10px 15px;
   display: flex;
-  //max-width: 600px;
   overflow-wrap: anywhere;
   gap: 15px;
-  margin: 10px auto 0;
 }
 
 .content {
@@ -18,6 +16,7 @@
 }
 
 .title {
-  height: 45px;
+  //height: 45px;
   overflow: hidden;
+  font-size: 1em;
 }

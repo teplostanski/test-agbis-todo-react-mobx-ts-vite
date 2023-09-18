@@ -1,6 +1,11 @@
 .container {
-  width: 85%;
-  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  overflow-y: scroll;
+  height: calc(100vh - 350px);
+  max-height: 100%;
 }
 
 .list {

@@ -8,10 +8,14 @@
   border: 2px solid var(--bg-secondary);
   padding: 10px;
   border-radius: 22px;
-  width: 85%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.marginTop {
+  margin-top: 33px;
 }
 
 .none {

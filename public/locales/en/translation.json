@@ -1,9 +1,8 @@
 {
   "titlePlaceholder": "Title",
   "bodyPlaceholder": "Task...",
-  "sortSelectionMenuTitle": "Sort",
-  "sortSelectionMenuItemNew": "Date of creation: New",
-  "sortSelectionMenuItemOld": "Date of creation: Old",
+  "sortSelectionMenuItemNew": "New",
+  "sortSelectionMenuItemOld": "Old",
   "sortSelectionMenuItemActive": "Active",
   "sortSelectionMenuItemCompleted": "Completed",
   "saveButton": "Save",

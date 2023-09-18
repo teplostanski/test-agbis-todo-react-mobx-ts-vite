@@ -1,9 +1,8 @@
 {
   "titlePlaceholder": "Заголовок",
   "bodyPlaceholder": "Задача...",
-  "sortSelectionMenuTitle": "Сортировка",
-  "sortSelectionMenuItemNew": "Дата создания: Новые",
-  "sortSelectionMenuItemOld": "Дата создания: Старые",
+  "sortSelectionMenuItemNew": "Новые",
+  "sortSelectionMenuItemOld": "Старые",
   "sortSelectionMenuItemActive": "Активные",
   "sortSelectionMenuItemCompleted": "Выполненные",
   "saveButton": "Сохранить",

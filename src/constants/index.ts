@@ -25,6 +25,22 @@ export const initTodos = [
     isChecked: true,
   },
   {
+    id: 1694317846530,
+    title: 'second todo',
+    body: 'Pellentesque lacus magna, pellentesque sed velit nec.',
+    create: new Date(1999, 1, 1),
+    dateCreate: 915224400000,
+    isChecked: false,
+  },
+  {
+    id: 1694317846531,
+    title: 'third todo',
+    body: 'Nulla auctor euismod lacus id rhoncus. Donec convallis eu.',
+    create: new Date(2008, 7, 12),
+    dateCreate: 1228683600000,
+    isChecked: true,
+  },
+  {
     id: 1694317846532,
     title: 'fourth todo',
     body: 'Vestibulum tincidunt, neque et.',

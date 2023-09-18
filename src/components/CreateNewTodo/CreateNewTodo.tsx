@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SetStateAction, useEffect, useRef, useState } from 'react'
+import cn from 'classnames'
 import { Editor } from '../../ui/Editor/Editor'
 import { IoMdAdd } from 'react-icons/io'
 import { todosStore } from '../../stores/todosStore'
@@ -14,7 +14,7 @@ const CreateNewTodo = () => {
 
   const [focused, setFocused] = useState(false)
   const [title, setTitle] = useState('')
-  const [body, setBody] = useState<any>('')
+  const [body, setBody] = useState('')
   const onFocus = () => setFocused(true)
   const [errorHint, setErrorHint] = useState<boolean>(false)
 
@@ -55,7 +55,7 @@ const CreateNewTodo = () => {
   }
 
   return (
-    <div ref={containerRef} onFocus={onFocus} className={styles.container}>
+    <div ref={containerRef} onFocus={onFocus} className={cn(styles.container, { [styles.marginTop]: !focused })}>
       {focused && <Editor.Input onKeyDown={handleClick} value={title} onChange={(e: { target: { value: SetStateAction<string> } }) => setTitle(e.target.value)} />}
       <div className={styles.textareaContainer}>
         <Editor.Textarea

@@ -36,7 +36,6 @@ const SortSelectionMenu = observer(() => {
   return (
     <>
       <div className={styles.container}>
-        <h3 className={styles.title}>{t('sortSelectionMenuTitle')}</h3>
         <Select onChange={handleChange} value={getValue()} className={styles.select} defaultValue={options[0]} options={options} styles={colorStyles} />
       </div>
     </>

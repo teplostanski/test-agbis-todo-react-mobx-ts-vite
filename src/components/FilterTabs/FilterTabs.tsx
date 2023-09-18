@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { observer } from 'mobx-react-lite'
 import Tabs from '../../ui/Tabs/Tabs'
-import styles from './FilterTabs.module.scss'
 import { TTab, TTabs } from '../../types'
 import { todosStore } from '../../stores/todosStore'
 import { useTranslation } from 'react-i18next'
@@ -28,7 +27,6 @@ const FilterTabs = observer(() => {
   return (
     <>
       <Tabs tabs={tabs} selectedId={selectedId} onClick={handleTabClick} />
-      <div className={styles.content}></div>
     </>
   )
 })
