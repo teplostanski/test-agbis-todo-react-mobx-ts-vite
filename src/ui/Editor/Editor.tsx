@@ -30,7 +30,7 @@ const Input = ({ onChange, value, onKeyDown, ...props }: TEditorInputProps) => {
         type='text'
         placeholder={t('titlePlaceholder')}
       />
-      {value && focused && <div className={styles.hint}>{t('hintInput')}</div>}
+      <BrowserView>{value && focused && <div className={styles.hint}>{t('hintInput')}</div>}</BrowserView>
     </div>
   )
 }
